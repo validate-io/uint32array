@@ -1,8 +1,8 @@
-uint32array
+Uint32Array
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Validates if a value is a Uint32Array.
+> Validates if a value is a [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array).
 
 
 ## Installation
@@ -17,18 +17,61 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var foo = require( 'validate.io-uint32array' );
+var isUint32Array = require( 'validate.io-uint32array' );
 ```
 
-#### foo( value )
+#### isUint32Array( value )
 
-What does this function do?
+Validates if a value is an [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array).
+
+``` javascript
+var arr = new Uint32Array( 10 );
+
+var bool = isUint32Array( arr );
+// returns true
+```
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'validate.io-uint32array' );
+var isUint32Array = require( 'validate.io-uint32array' );
+
+console.log( isUint32Array( new Uint32Array( 10 ) ) );
+// returns true
+
+console.log( isUint32Array( new Int8Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Uint8Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Uint8ClampedArray( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Int16Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Uint16Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Int32Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Float32Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Float64Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( new Array( 10 ) ) );
+// returns false
+
+console.log( isUint32Array( {} ) );
+// returns false
+
+console.log( isUint32Array( null ) );
+// returns false
 ```
 
 To run the example code from the top-level application directory,
